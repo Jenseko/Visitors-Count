@@ -6,14 +6,14 @@ function App() {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    axios.get('http://localhost:3000/visited').then
-      (data => console.log(data))
+    axios.get('http://localhost:3001/visited').then
+      (({ data }) => setCount(data))
   }, [])
 
   return (
     <>
       <h1>FINAL COUNTDOWN</h1>
-      <p>`Site was visited by ${count} User/s!`</p>
+      <p>{count}</p>
     </>
   )
 }

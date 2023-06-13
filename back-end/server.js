@@ -1,5 +1,6 @@
 import express from 'express';
 import fs from 'fs-jetpack';
+import cors from 'cors';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -21,6 +22,7 @@ let counter = Number(prevCount) || 0;
 // Edge Cases - sichergehen, dass wenn Programm von jemand anders gestartet wird, 
 // muss man sichergehen, dass ein individueller Link mit einem absoluten Pfad erstellt wird
 
+app.use(cors());
 
 app.get('/visit', (req, res) => {
     counter++;

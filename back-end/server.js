@@ -1,19 +1,17 @@
 import express from 'express';
-import mongoose from 'mongoose';
-import 'dotenv/config.js';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
-app.use(express.json());
-mongoose.connect(process.env.DB);
+let counter = 0;
 
 app.get('/visit', (req, res) => {
-
+    counter++;
+    res.send();
 })
 
 app.get('/visited', (req, res) => {
-
+    res.send(`Site was visited by ${counter} User/s!`)
 });
 
 app.listen(PORT, () => {
